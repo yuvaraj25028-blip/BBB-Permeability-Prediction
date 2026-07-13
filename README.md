@@ -1,59 +1,185 @@
-# BBB Permeability Prediction
+# BBB Permeability Prediction Using Spectral Topological Descriptors
 
-This repository contains the Python implementation used to calculate the fourteen eigenvalue-based spectral topological descriptors employed in the manuscript:
+This repository contains the Python implementation and the calculated spectral descriptor dataset used in the research manuscript:
 
-**Predicting Blood-Brain Barrier Permeability Using Eigenvalue-Based Spectral Topological Descriptors and Machine Learning**
+> **Predicting Blood-Brain Barrier Permeability Using Eigenvalue-Based Spectral Topological Descriptors and Machine Learning**
 
-## Overview
+The repository is intended to support the reproducibility of the spectral descriptor calculations presented in the manuscript.
 
-The program calculates fourteen eigenvalue-based spectral descriptors from molecular graphs constructed from SMILES strings.
+---
 
-## Calculated Spectral Descriptors
+# Overview
 
-- Adjacency Energy (EA)
-- Adjacency Spectral Radius (ρA)
-- Laplacian Energy (EL)
-- Laplacian Spectral Radius (ρL)
-- Signless Laplacian Energy (EQ)
-- Signless Laplacian Spectral Radius (ρQ)
-- Eccentricity Matrix Energy (EES)
-- Eccentricity Matrix Spectral Radius (ρES)
-- Randic Matrix Energy (ERS)
-- Randic Matrix Spectral Radius (ρRS)
-- Seidel Matrix Energy (ESS)
-- Seidel Matrix Spectral Radius (ρSS)
-- Graph Arithmetic–Geometric Matrix Energy (EGAS)
-- Graph Arithmetic–Geometric Matrix Spectral Radius (ρGAS)
+Blood–brain barrier (BBB) permeability prediction plays an important role in central nervous system (CNS) drug discovery. This repository provides the Python implementation developed to calculate fourteen eigenvalue-based spectral topological descriptors from molecular graphs. These descriptors were subsequently used for machine learning analysis in the accompanying study.
 
-## Programming Language
+The program constructs molecular graphs from SMILES strings, computes various graph matrices, determines their eigenvalues, and calculates fourteen spectral descriptors.
+
+---
+
+# Repository Contents
+
+```
+BBB-Permeability-Prediction/
+│
+├── Descriptor_Calculation.py
+│      Python implementation for spectral descriptor calculation
+│
+├── BBBP_14_Descriptors.xlsx
+│      Calculated spectral descriptor dataset
+│
+└── README.md
+       Repository documentation
+```
+
+---
+
+# Input
+
+The program accepts molecular structures represented as **SMILES** strings.
+
+Example
+
+```
+CC(=O)Oc1ccccc1C(=O)O
+```
+
+---
+
+# Output
+
+For every molecular graph, the program calculates the following fourteen eigenvalue-based spectral topological descriptors.
+
+| Symbol | Descriptor |
+|---------|------------|
+| EA | Adjacency Energy |
+| ρA | Adjacency Spectral Radius |
+| EL | Laplacian Energy |
+| ρL | Laplacian Spectral Radius |
+| EQ | Signless Laplacian Energy |
+| ρQ | Signless Laplacian Spectral Radius |
+| EES | Eccentricity Matrix Energy |
+| ρES | Eccentricity Matrix Spectral Radius |
+| ERS | Randic Matrix Energy |
+| ρRS | Randic Matrix Spectral Radius |
+| ESS | Seidel Matrix Energy |
+| ρSS | Seidel Matrix Spectral Radius |
+| EGAS | Graph Arithmetic–Geometric Matrix Energy |
+| ρGAS | Graph Arithmetic–Geometric Matrix Spectral Radius |
+
+---
+
+# Dataset
+
+The repository includes the calculated spectral descriptor dataset generated from the MoleculeNet BBBP dataset.
+
+Each record contains
+
+- SMILES representation
+- BBB permeability label
+- Fourteen spectral topological descriptors
+
+The descriptor dataset was generated using the accompanying Python implementation.
+
+---
+
+# Methodology
+
+The descriptor calculation pipeline consists of the following steps.
+
+1. Read molecular structures from the input dataset.
+2. Convert each SMILES string into a molecular graph using RDKit.
+3. Construct graph matrices.
+4. Compute eigenvalues of each graph matrix.
+5. Calculate fourteen eigenvalue-based spectral descriptors.
+6. Store the calculated descriptors in a tabular dataset for subsequent machine learning analysis.
+
+---
+
+# Software Requirements
+
+The code was developed using
 
 - Python 3
-
-## Main Library Requirements
-
 - RDKit
 - NumPy
-- NetworkX
 - Pandas
 - tqdm
 
-This repository is provided to support the reproducibility of the spectral descriptor calculations presented in the accompanying manuscript.
-## Repository Contents
+The following Python standard libraries are also used
 
+- warnings
+- urllib.request
+
+Install the required packages using
+
+```bash
+pip install numpy pandas rdkit tqdm
 ```
-Descriptor_Calculation.py    Python implementation
-dataset/                     Calculated spectral descriptor dataset
-README.md                    Repository documentation
+
+---
+
+# Usage
+
+Run
+
+```bash
+python Descriptor_Calculation.py
 ```
 
-## Dataset
+The program will
 
-The repository includes the calculated spectral descriptor dataset for the MoleculeNet BBBP compounds.
+- Read molecular structures
+- Calculate spectral descriptors
+- Generate the descriptor dataset
 
-**Columns include:**
+---
 
-- SMILES
-- BBB permeability label
-- 14 spectral descriptors
+# Scientific Background
 
-The descriptor dataset was generated using the accompanying Python implementation.
+The implemented descriptors are based on spectral graph theory and are computed from eigenvalues of several graph matrices, including
+
+- Adjacency Matrix
+- Laplacian Matrix
+- Signless Laplacian Matrix
+- Eccentricity Matrix
+- Randic Matrix
+- Seidel Matrix
+- Graph Arithmetic–Geometric Matrix
+
+These descriptors provide numerical representations of molecular structures for quantitative structure–property relationship (QSPR) modelling and machine learning applications.
+
+---
+
+# Citation
+
+If you use this repository in your research, please cite the following manuscript.
+
+> A. Yuvaraj, G. Kalaimurugan, R. Thamizhmaran, et al.
+>
+> **Predicting Blood-Brain Barrier Permeability Using Eigenvalue-Based Spectral Topological Descriptors and Machine Learning.**
+
+(Add journal information after publication.)
+
+---
+
+# License
+
+This repository is made available for academic and research purposes.
+
+Please cite the associated publication when using this code or dataset.
+
+---
+
+# Contact
+
+For questions regarding the code or dataset, please contact the corresponding author through the details provided in the associated publication.
+
+---
+
+# Acknowledgement
+
+The molecular structures used in this work are derived from the publicly available MoleculeNet BBBP dataset.
+
+https://moleculenet.org/
+
+The spectral descriptor calculations and dataset generation were developed by the authors of the accompanying manuscript.
