@@ -150,18 +150,6 @@ These descriptors provide numerical representations of molecular structures for 
 
 ---
 
-# Citation
-
-If you use this repository in your research, please cite the following manuscript.
-
-> A. Yuvaraj, G. Kalaimurugan, R. Thamizhmaran, et al.
->
-> **Predicting Blood-Brain Barrier Permeability Using Eigenvalue-Based Spectral Topological Descriptors and Machine Learning.**
-
-(Add journal information after publication.)
-
----
-
 # License
 
 This repository is made available for academic and research purposes.
@@ -173,13 +161,3 @@ Please cite the associated publication when using this code or dataset.
 # Contact
 
 For questions regarding the code or dataset, please contact the corresponding author through the details provided in the associated publication.
-
----
-
-# Acknowledgement
-
-The molecular structures used in this work are derived from the publicly available MoleculeNet BBBP dataset.
-
-https://moleculenet.org/
-
-The spectral descriptor calculations and dataset generation were developed by the authors of the accompanying manuscript.
