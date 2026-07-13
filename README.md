@@ -38,3 +38,22 @@ The program calculates fourteen eigenvalue-based spectral descriptors from molec
 - tqdm
 
 This repository is provided to support the reproducibility of the spectral descriptor calculations presented in the accompanying manuscript.
+## Repository Contents
+
+```
+Descriptor_Calculation.py    Python implementation
+dataset/                     Calculated spectral descriptor dataset
+README.md                    Repository documentation
+```
+
+## Dataset
+
+The repository includes the calculated spectral descriptor dataset for the MoleculeNet BBBP compounds.
+
+**Columns include:**
+
+- SMILES
+- BBB permeability label
+- 14 spectral descriptors
+
+The descriptor dataset was generated using the accompanying Python implementation.
