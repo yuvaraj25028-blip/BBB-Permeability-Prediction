@@ -35,5 +35,6 @@ The program calculates fourteen eigenvalue-based spectral descriptors from molec
 - NumPy
 - NetworkX
 - Pandas
+- tqdm
 
 This repository is provided to support the reproducibility of the spectral descriptor calculations presented in the accompanying manuscript.
